@@ -24,7 +24,7 @@ $arr = array(
 <body>
 <nav class="cyan lighten-2" role="navigation">
     <div class="nav-wrapper container ">
-        <a id="logo-container" href="#" class="brand-logo">NOTICIA DO DIA!</a>
+        <a id="logo-container" href="bomdia" class="brand-logo">NOTICIA DO DIA!</a>
     </div>
 </nav>
 <br><br><br>
