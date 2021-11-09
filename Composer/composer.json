@@ -1,0 +1,18 @@
+{
+    "name": "laboratorio/composer",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laboratorio\\Composer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Good Day man",
+            "email": "juninho_1loch@hotmail.com"
+        }
+    ],
+    "require": {}
+}
