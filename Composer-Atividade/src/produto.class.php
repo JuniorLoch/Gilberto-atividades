@@ -18,7 +18,7 @@ class Produto {
     {
         $this->conectaBD();
 
-        if(is_array($dados)){ // o $dados deve possuir esses campos
+        if(is_array($dados) && is_null($dados)){ // o $dados deve possuir esses campos
             $this->id = $dados["id"];
             $this->nome = $dados["nome"];
             $this->pesoLiq = $dados["pesoLiq"];
