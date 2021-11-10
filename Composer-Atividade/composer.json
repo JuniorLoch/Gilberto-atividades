@@ -1,0 +1,24 @@
+{
+    "name": "laboratorio/composer-atividade",
+    "description": "atividade felipe 9/11",
+    "require-dev": {
+    		"phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "src"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "Tests\\" : "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gilberto Gaspar",
+            "email": "802.205@alunos.unigran.br"
+        }
+    ],
+    "require": {}
+}
