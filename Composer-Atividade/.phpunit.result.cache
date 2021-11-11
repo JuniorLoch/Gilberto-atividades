@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Warning":6,"ProdutoTest::testConstructor":4,"ProdutoTest::testGetId":5},"times":{"Warning":0.006,"ProdutoTest::testConstructor":0.022,"ProdutoTest::testGetId":0.01,"ProdutoTest::testId":0.011}}

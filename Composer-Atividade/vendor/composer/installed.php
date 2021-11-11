@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '0dc5dc15eabed5d5172b3f5905d069ce0dc0f4d5',
+        'reference' => '4291cae44ac93b4e012636f49a2ed7e77d34c0fd',
         'name' => 'laboratorio/composer-atividade',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '0dc5dc15eabed5d5172b3f5905d069ce0dc0f4d5',
+            'reference' => '4291cae44ac93b4e012636f49a2ed7e77d34c0fd',
             'dev_requirement' => false,
         ),
         'myclabs/deep-copy' => array(
