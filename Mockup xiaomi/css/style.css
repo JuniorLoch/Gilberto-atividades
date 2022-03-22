@@ -1,0 +1,198 @@
+#corpo{
+    margin-top: 30px;
+}
+
+#items {
+    margin-top: 1.5%;
+}
+
+
+.divisor{
+    margin-top: 0px;
+}
+
+#divisor1{
+    margin-top: -25px;
+}
+
+#divisor2{
+    margin-top:50px;
+}
+
+.rodape-texto{
+    height: 50px;
+    font-size: 12pt;
+    text-align: center;
+    font-weight: bold;
+    color: #3b4754;
+}
+
+.rsodape-texto:hover{
+    background-color:lightgray;
+}
+
+.titulo{
+    color: #3b4754;
+    font-weight: bold;
+    font-size: 30pt;
+}
+
+.texto{
+    color: #798da3;
+    font-size:15pt;
+}
+
+#texto-1{
+    margin-top: 50px;
+}
+
+
+#texto-2{
+    margin-top:-20px;
+}
+
+#texto-3{
+    margin-top:-20px;
+}
+
+.botao{
+    background-color: #29323d;
+    font-weight: bold;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 160px;
+}
+
+.botao:hover{
+    background-color: #535A63;
+}
+
+#container-beneficios{
+    margin-top: 50px;
+}
+
+
+
+#imagem-b-2{
+    margin-top: 10px;
+}
+
+.subtitulo{
+    font-weight: bold;
+    font-size: 16pt;
+    color: #3b4754;
+}
+
+.texto-b{
+    margin-left:75px;
+}
+
+#texto-b-2{
+    margin-left: 115px;
+    margin-top: 30px;
+}
+#texto-b-3{
+    margin-left: 140px;
+}
+
+#texto-detalhes-1{
+    text-align: center;
+}
+#texto-detalhes-2{
+    text-align: center;
+}
+#texto-detalhes-3{
+    text-align: center;
+}
+.texto1{
+    color: #798da3;
+    font-size:13pt;
+}
+
+#container-video{
+    margin-top:10px;
+}
+#menu{
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+#menu a{
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 20px;
+    color: black;
+}
+
+#menu a:hover{
+    background-color: lightgray;
+}
+
+.tab-folder > .tab-content:target ~ .tab-content:last-child, .tab-folder > .tab-content {
+    display: none;
+}
+.tab-folder > :last-child, .tab-folder > .tab-content:target {
+    display: block;
+}
+
+#texto-menu-1{
+    margin-top:-100px;
+}
+
+#tab1 p{
+    margin-bottom: 0px;
+}
+
+#tab2 p{
+    margin-bottom: 0px;
+}
+
+#tab3 p{
+    margin-bottom: 0px;
+}
+
+.coluna-specs{
+    margin-top: 0px;
+}
+
+.coluna-specs li{
+    margin-top: 50px;
+}
+
+.imagem-specs{
+    margin-top:75px;
+}
+
+.sub-spec{
+    margin-top: -15px;
+}
+
+.img-spec{
+    margin-top: 25px;
+}
+
+.painel-precos{
+    margin-left: 100px;
+}
+.botao-saibamais{
+    margin-bottom: 3%;
+}
+
+.rodape-icones img{
+    margin-top: 9%;
+    margin-left: 10%;
+}
+
+.rodape-texto{
+    margin-top: 3.5%;
+}
+
+.rodape-logo img{
+    margin-left: -5%;
+}
+
+.card-panel{
+    border-radius: 20px;
+}
