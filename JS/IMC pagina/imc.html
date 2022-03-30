@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body  class="#4dd0e1 cyan lighten-2">
+    <div class="container #b2ebf2 cyan lighten-4">
+        <div class="row col s12" style="padding-bottom: 15.2%; margin-bottom: 0;">
+            <div class="col s6 offset-s3 center" style="margin-top: 20%;">
+                <form id="formulario" method="post" action="imc">
+                    <h3>Insira seu peso</h3>
+                    <input type="number" step="0.01" id="peso" style="margin-bottom: 10%;">
+                    <h3>Insira sua altura</h3>
+                    <input type="number" step="0.01" id="altura" style="margin-bottom: 10%;">
+                    <button class="btn btn-large #4dd0e1 cyan lighten-2" type="submit" id="botao">Enviar</button>
+                </form>
+            </div>
+            <div class="col s6 offset-s3 center" style="margin-top: 20%;" id="resultado">
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(function(){
+            $("#formulario").submit((event)=>{
+                event.preventDefault();
+                var form = {peso:$("#peso").val(), altura:$("#altura").val()};
+                $.post("/imc",form,(imc)=>{
+                    $("#resultado").html(imc);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
