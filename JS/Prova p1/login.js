@@ -24,7 +24,7 @@ app.get('/index.html', (req,res) => { // req - request | res - response
 });
 
 app.get('/contagem', (req,res) => { // req - request | res - response
-    res.render('contagem',{user1:contagem[0],user2:contagem[1],user3:contagem[2]});
+    res.render('contagem',{user1:contagem[0],user2:contagem[1],user3:contagem[2],erros:contagem[3]});
 });
 
 app.post('/login', (req,res) => { // req - request | res - response
