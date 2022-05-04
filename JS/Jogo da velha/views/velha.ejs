@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/stilo.css">
+    <title>Document</title>
+</head>
+<body class="#84ffff cyan darken-1">
+    <div class="container center cunteiner">
+        <div id="velha" class="card-panel z-depth-4 cyan lighten-4">
+            <div class="row center linha">
+                <div id="q11" class="item col s4 ">
+                    <p></p>
+                </div>
+                <div id="q21" class="item col s4">
+                    <p></p>
+                </div>
+                <div id="q31" class="item col s4">
+                    <p></p>
+                </div>
+            </div>
+            <div class="row center linha">
+                <div id="12" class="item col s4">
+                    <p></p>
+                </div>
+                <div id="22" class="item col s4">
+                    <p></p>
+                </div>
+                <div id="32" class="item col s4">
+                    <p></p>
+                </div>
+            </div>
+            <div class="row center linha">
+                <div id="13" class="item col s4">
+                    <p></p>
+                </div>
+                <div id="23" class="item col s4">
+                    <p></p>
+                </div>
+                <div id="33" class="item col s4">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var socket = io();
+    $(".item").click( function(e) { 
+        $(this).find("p").text("X");
+    });
+
+
+
+
+
+
+</script>
+
+</html>
