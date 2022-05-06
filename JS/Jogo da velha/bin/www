@@ -25,9 +25,26 @@ var server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+var maxjogadores = 0;
+
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  console.log("Conexao criada!");
+  socket.on("jogador", (jogador) => {
+    if(jogador != undefined){   
+      if(maxjogadores<2){
+        console.log("Jogador "+jogador+" entrou!");
+        socket.broadcast.emit('verifica',{jogador:jogador,aprovado:true});
+        maxjogadores++;
+      } else {
+        console.log("Limite max atingido: "+ maxjogadores);
+        socket.broadcast.emit('verifica',{jogador:jogador,aprovado:false});
+      }
+    }
+  });
+
 });
+
+
 
 /**
  * Listen on provided port, on all network interfaces.

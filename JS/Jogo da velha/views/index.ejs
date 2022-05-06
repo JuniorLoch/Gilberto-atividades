@@ -1,23 +1,38 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/css/style.css' />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/stilo.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Document</title>
 </head>
-
-<body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
-  <script src="/js/socket.io.js"></script>
-  <script>
-    var socket = io();
-  </script>
+<body class="#84ffff cyan darken-1">
+    <div class="container center cunteiner">
+        <div id="painel" class="card-panel z-depth-4 cyan lighten-4">
+            <form id="login" action="velha" method="post">
+              <input id="jogador" type="text" class="form-control input-sm chat-input" placeholder="Insira seu nome" />
+              <span class="input-group-btn">
+                  <button id="enviar" class="btn btn-sm chat-submit-button row">
+                      <i class="glyphicon glyphicon-send">Enviar</i>
+                  </button>
+              </span>
+            </form>
+            <div id="resultado" class="#84ffff cyan darken-3 red-text text-darken-3">
+              
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/client.js"> </script>
+<script>
+ 
+
+</script>
 
 </html>
