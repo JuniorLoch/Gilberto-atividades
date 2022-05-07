@@ -6,15 +6,17 @@ $('#login').on('submit', (e) => {
     console.log(jogador);
     socket.emit('jogador', jogador);
 
-    socket.on('verifica',(jogador,aprovado) => {
+    socket.on('verifica',(jogador) => {
         console.log('verificar');
-        if(aprovado){
+        if(jogador.aprovado){
             console.log('aprovou');
-            e.initEvent();
+            e.initEvent;
         } else {
             console.log('reprovou');
             $('#resultado').append('Max de jogadores atingido!');
         }
     });
+    
 });
+
 

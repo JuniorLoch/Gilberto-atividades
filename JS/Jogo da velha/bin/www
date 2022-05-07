@@ -33,11 +33,11 @@ io.on('connection', (socket) => {
     if(jogador != undefined){   
       if(maxjogadores<2){
         console.log("Jogador "+jogador+" entrou!");
-        socket.broadcast.emit('verifica',{jogador:jogador,aprovado:true});
+        socket.emit('verifica',{jogador:jogador,aprovado:true});
         maxjogadores++;
       } else {
         console.log("Limite max atingido: "+ maxjogadores);
-        socket.broadcast.emit('verifica',{jogador:jogador,aprovado:false});
+        socket.emit('verifica',{jogador:jogador,aprovado:false});
       }
     }
   });
