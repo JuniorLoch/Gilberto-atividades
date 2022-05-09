@@ -1,6 +1,6 @@
 var socket = io();
 var jogador;
-$('#login').on('submit', (e) => {
+$('#enviar').on('click', (e) => {
     e.preventDefault();
     jogador = $('#jogador').val();
     console.log(jogador);
@@ -10,13 +10,12 @@ $('#login').on('submit', (e) => {
         console.log('verificar');
         if(jogador.aprovado){
             console.log('aprovou');
-            e.initEvent;
+            $('#login').submit();
         } else {
             console.log('reprovou');
-            $('#resultado').append('Max de jogadores atingido!');
+            $('#resultado').text('Max de jogadores atingido!');
         }
     });
-    
 });
 
 

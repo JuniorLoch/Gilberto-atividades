@@ -42,6 +42,10 @@ io.on('connection', (socket) => {
     }
   });
 
+  socket.on("pos", (posicao) => {
+    socket.broadcast.emit('rpos',posicao);
+  });
+
 });
 
 

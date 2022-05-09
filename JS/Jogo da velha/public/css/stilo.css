@@ -1,7 +1,10 @@
 #velha{
     margin-top: 2%;
     margin-bottom: 0%;
-    padding: 0rem 0rem 0rem 0rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     width: 40rem;
     height: 39rem;
     cursor: default;
@@ -35,6 +38,7 @@
     border: solid 1px black;
     height: 13rem;
     align-items: center;
+    padding: 0rem 0rem 0rem 0rem!important;
 
     /*padding-top: 10%!important; 
     padding-bottom: 10%!important;*/
