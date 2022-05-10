@@ -3,8 +3,8 @@
     margin-bottom: 0%;
     padding-top: 0rem;
     padding-bottom: 0rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     width: 40rem;
     height: 39rem;
     cursor: default;
@@ -13,6 +13,12 @@
 #painel{
     margin-top: 15rem;
     margin-bottom: 0%;
+}
+
+#resultado{
+    margin-top: 2rem;
+    border-radius: 5rem;
+    box-shadow: 0em 0em 1em rgb(197, 30, 24)!important;
 }
 
 #painel input::placeholder{
@@ -34,8 +40,12 @@
     box-shadow: 0em 0em 4em rgb(148, 24, 197)!important;
 }
 
+
 .item{
-    border: solid 1px black;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+    border-image-source: linear-gradient(to right, #743ad5, #d53a9d);
     height: 13rem;
     align-items: center;
     padding: 0rem 0rem 0rem 0rem!important;
@@ -57,6 +67,10 @@
     font-family: monotype cursiva;
     margin-top: 13%!important;
     margin-bottom: 13%!important;
+    background: -webkit-linear-gradient(#743ad5, #d53a9d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @keyframes selecionar{
@@ -66,4 +80,33 @@
     100%{
         box-shadow: inset 0rem 0rem 2rem rgb(148, 24, 197);
     }
+}
+
+#enviar{
+    margin-top: 2rem;
+    margin-left: -1rem;
+    padding-bottom: 4rem;
+}
+
+#enviar i{
+    position: relative;
+    display: inline-block;
+
+    color: #03e9f4;
+    font-size: 16pt;
+    text-decoration: none!important;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 1rem;
+}
+
+#enviar i:hover{
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 3rem;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
 }
