@@ -1,15 +1,13 @@
 var socket = io();
 var jogador;
-$('#enviar').on('click', (e) => {
+$('#enviar').on('click', async (e) => {
     e.preventDefault();
     jogador = $('#jogador').val();
-    console.log(jogador);
     socket.emit('jogador', jogador);
 
-    socket.on('verifica',(jogador) => {
+    await socket.on('verifica',(jogador) => {
         console.log('verificar');
         if(jogador.aprovado){
-            console.log('aprovou');
             $('#login').submit();
         } else {
             console.log('reprovou');
@@ -17,5 +15,3 @@ $('#enviar').on('click', (e) => {
         }
     });
 });
-
-
