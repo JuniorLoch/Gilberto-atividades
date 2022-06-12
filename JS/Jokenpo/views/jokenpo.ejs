@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jokenpo.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body class="#84ffff cyan darken-1">
+    <div class="container center cunteiner">
+        <div id="jokenpo" class="card-panel z-depth-4 cyan lighten-4">
+            <form method="get" action="jogada">
+                <div class="Escolhas row center">
+                    <div class="col s4 imagescolha">
+                        <img class="circle " id="pedra" src="./imgs/pedra.png" width="400px" height="325px" style="margin-left: -3rem; margin-top: 3rem;">
+                    </div>
+                    <div class="col s4 imagescolha">
+                        <img class="circle " id="papel" src="./imgs/papel.png" width="325px" height="400px">
+                    </div>
+                    <div class="col s4 imagescolha">
+                        <img class="circle " id="tesoura" src="./imgs/tesoura.png" width="400px" height="400px">
+                    </div>
+                </div>
+            </form>        
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/jogador.js"> </script>
+
+</html>

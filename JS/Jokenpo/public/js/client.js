@@ -9,11 +9,11 @@ $('#enviar').on('click', (e) => {
     socket.on('verifica',(jogador) => {
         console.log('verificar');
         if(jogador.aprovado){
-            console.log('aprovou');
+            console.log('Jogador id:'+jogador.id+' nome: '+jogador.nome+' Aprovado');
             $('#login').submit();
         } else {
-            console.log('reprovou');
-            $('#resultado').text('Max atingido!');
+            console.log('Jogador id:'+jogador.id+' nome: '+jogador.nome+' Reprovado, Max atingido!');
+            $('#resultado').text('Max de jogadores atingido!');
         }
     });
 });
