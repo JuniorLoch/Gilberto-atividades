@@ -10,19 +10,64 @@
     <title>Document</title>
 </head>
 <body class="#84ffff cyan darken-1">
-    <div class="container center cunteiner">
+
+    <div class="container center cunteiner bloqueado">
+        <div id="placar" class="card-panel z-depth-4 cyan lighten-4">
+            <div class="center col s6">
+                <p id="rodada">Rodada: 1</p>
+            </div>
+            <div class="placar row center-align">
+                <div class="col s4">
+                    <p>P1: </p>
+                    <p id="resultp1">0</p>
+                </div>
+                <div class="col s4">
+                    <p>você</p>
+                    <p id="voce"></p>
+                </div>
+                <div class="col s4">
+                    <p>P2: </p>
+                    <p id="resultp2">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container center cunteiner login">
+        <div id="painel" class="card-panel z-depth-4 cyan lighten-4">
+            <form id="login" action="jokenpo" method="post">
+              <input id="jogador" type="text" class="form-control input-sm chat-input" placeholder="Insira seu nome" />
+              <span class="input-group-btn">
+                  <button id="enviar" class="btn btn-sm chat-submit-button row">
+                      <i class="glyphicon glyphicon-send">  Enviar</i>
+                  </button>
+              </span>
+            </form>
+            <div id="resultado" class="#84ffff cyan darken-1">
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="container center cunteiner bloqueado">
         <div id="jokenpo" class="card-panel z-depth-4 cyan lighten-4">
             <form method="get" action="jogada">
                 <div class="Escolhas row center">
                     <div class="col s4 imagescolha">
+                        <p class="emojiescolha">🗿</p>
                         <img class="circle " id="pedra" src="./imgs/pedra.png" width="400px" height="325px" style="margin-left: -3rem; margin-top: 3rem;">
                     </div>
                     <div class="col s4 imagescolha">
+                        <p class="emojiescolha">🧻</p>
                         <img class="circle " id="papel" src="./imgs/papel.png" width="325px" height="400px">
                     </div>
                     <div class="col s4 imagescolha">
+                        <p class="emojiescolha">✂</p>
                         <img class="circle " id="tesoura" src="./imgs/tesoura.png" width="400px" height="400px">
                     </div>
+                </div>
+                <div class="center col s6">
+                    <button class="btn resposta">Escolher</button>
                 </div>
             </form>        
         </div>
@@ -32,5 +77,9 @@
 <script src="js/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/jogador.js"> </script>
+<script>
+
+
+</script>
 
 </html>

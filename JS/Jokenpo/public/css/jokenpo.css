@@ -1,27 +1,40 @@
-#velha{
-    margin-top: 2%;
-    margin-bottom: 0%;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    width: 40rem;
-    height: 39rem;
-    cursor: default;
-}
-
 #painel{
-    margin-top: 15rem;
-    width: 60rem;
-    height: 15rem;
-    margin-bottom: 0%;
+    margin-top: 5rem;
+    width: 115rem;
+    height: 20rem;
+    margin-bottom: 1.5rem;
 }
 
-#enviar{
+#resultado{
+    font-weight: 700;
+    font-size: 36pt;
+    background: -webkit-linear-gradient(#743ad5, #d53a9d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#placar{
+    width: 115rem;
+    height: 30rem;
+}
+
+#placar div p{
+    font-weight: 800;
+    font-size: 42pt;
+    background: -webkit-linear-gradient(#743ad5, #d53a9d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.enviar{
     margin-top: 2.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
-#enviar:hover{
+.enviar:hover{
     animation-name: selecionar!important;
     animation-duration: 0.1s;
     animation-timing-function: linear;
@@ -32,6 +45,17 @@
     color: rgb(70, 70, 70);
 }
 
+.emojiescolha{
+    font-size: 25pt;
+}
+
+.bloqueado{
+    visibility: hidden!important;
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+
 .imageanim{
     animation-name: selecionar!important;
     animation-duration: 0.1s;
@@ -39,7 +63,7 @@
     animation-fill-mode: forwards;
 
     width: 40rem;
-    height: 40rem;
+    height: 50rem;
 }
 
 .cunteiner{

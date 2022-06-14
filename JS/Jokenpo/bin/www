@@ -28,7 +28,7 @@ const io = new Server(server);
 var maxjogadores = 0;
 var njogador = 0;
 
-var players = { "idj1": 0, "nj1":"", "idj2": 0, "nj2":""}; 
+var players = { idj1: 0, nj1:"",ej1:"", idj2: 0, nj2:"", ej2:""}; 
 
 // io.to(socketId).emit(/* ... */);
 
@@ -37,9 +37,8 @@ io.on('connection', (socket) => {
   console.log("Conexao criada!");
   socket.on("jogador", (jogador) => {
     if(jogador != undefined){   
-      if(maxjogadores>-1){
+      if(maxjogadores<2){
         
-        socket.emit('verifica',{jogador:jogador,id:socket.id,aprovado:true});
         maxjogadores++;
         if (njogador < 1){
           players.idj1 = socket.id;
@@ -47,11 +46,15 @@ io.on('connection', (socket) => {
           njogador++;
 
           console.log("Jogador 1: "+players.nj1+" entrou!, id: "+players.idj1);
+          socket.emit('verifica',{jogador:jogador,id:socket.id,aprovado:true,player:1});
+
         } else {
           players.idj2 = socket.id;
           players.nj2 = jogador;
 
           console.log("Jogador 2: "+players.nj2+" entrou!, id: "+players.idj2);
+          socket.emit('verifica',{jogador:jogador,id:socket.id,aprovado:true,player:2});
+
         }
       } else {
         console.log("Limite max atingido: "+ maxjogadores);
@@ -60,9 +63,77 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on("pos", (posicao) => {
-    socket.broadcast.emit('rpos',posicao);
+  socket.on("test", () => {
+    console.log("chegoutest");
+    io.to(players.idj1).emit("bomdia","aaa");
   });
+/*escolha, jogadorordem, jogadorid*/
+  socket.on("escolha", (Ejogador) => {
+    if(Ejogador.jogadorordem == 1){
+      players.ej1 = Ejogador.escolha;
+      console.log("escolhap1");
+    } else {
+      players.ej2 = Ejogador.escolha;
+      console.log("escolhap2");
+    }
+
+    if(players.ej1 != "" && players.ej2 != ""){
+      console.log("comparando");
+      result = compara(players.ej1,players.ej2);
+      io.to(players.idj1).emit("resultado", result);
+      io.to(players.idj2).emit("resultado", result);
+      /*
+      switch(result){
+        case 0:
+          io.to(players.idj1).emit("resultado", {texto:"Empatou!", ganhador: result});
+          io.to(players.idj2).emit("resultado", {texto:"Empatou!", ganhador: result});
+          break;
+        case 1:
+          io.to(players.idj1).emit("resultado", {texto:"Ganhou!", ganhador: result});
+          io.to(players.idj2).emit("resultado", {texto:"Perdeu!", ganhador: result});
+          break;
+        case 2:
+          io.to(players.idj1).emit("resultado", {texto:"Perdeu!", ganhador: result});
+          io.to(players.idj2).emit("resultado", {texto:"Ganhou!", ganhador: result});
+          break;
+        default:
+          console.log("resultado inesperado");
+          break;
+      }
+      */
+      players.ej1 = "";
+      players.ej2 = "";
+    }
+  });
+
+  var compara = function(e1,e2){
+    if(e1 == "pedra"){
+      if(e2 == "papel"){
+        return 2;
+      } else if(e2 == "tesoura"){
+        return 1;
+      } else {
+        return 0;
+      }
+    } else if(e1 == "tesoura"){
+      if(e2 == "papel"){
+        return 1;
+      } else if(e2 == "pedra"){
+        return 2;
+      } else {
+        return 0;
+      }    
+    } else {
+      if(e2 == "tesoura"){
+        return 2;
+      } else if(e2 == "pedra"){
+        return 1;
+      } else {
+        return 0;
+        console.log("comparacao: empate");
+      }    
+    }
+  }
 
 });
 
