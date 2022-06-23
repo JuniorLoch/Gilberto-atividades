@@ -14,7 +14,6 @@ class Camposorte extends Component {
 
     componentDidUpdate() {
         // eslint-disable-next-line
-
         if (this.props.msg != this.state.msg) {
             this.setState({ anim: true });
             this.setState({ msg: this.props.msg });
