@@ -1,0 +1,33 @@
+#result {
+    background-color: rgb(77, 77, 77);
+    margin: auto;
+    border-radius: 0.3rem;
+    width: 70rem;
+    height: 5rem;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+}
+
+.anim {
+    animation: abrir 1.5s forwards 0ms;
+}
+
+@keyframes abrir {
+    0% {
+        width: 0rem;
+    }
+    30% {
+        width: 20rem;
+    }
+    100% {
+        width: 70rem;
+    }
+}
+
+#result p {
+    color: rgb(179, 177, 177);
+    font-size: 25pt;
+    margin: 0.8rem 0 0 0;
+}
