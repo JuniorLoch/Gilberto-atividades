@@ -1,4 +1,18 @@
-#conteiner {
-    text-align: center;
-    margin: 5rem 0 0 0;
+#cronometro {
+    position: absolute;
+    z-index: 0;
+    top: 5rem;
+    left: 33.6rem;
+    border: none;
+    filter: brightness(39%);
+}
+
+#tempo {
+    position: absolute;
+    top: 19.5rem;
+    left: 36rem;
+
+    color: darkgrey;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 68pt;
 }

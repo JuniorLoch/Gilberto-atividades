@@ -1,0 +1,42 @@
+#botoes button {
+    background: none;
+    border: none;
+    overflow: hidden;
+}
+#botoes {
+    z-index: 2;
+}
+
+#botoes img {
+    width: 7rem;
+    height: 3.5rem;
+    filter: grayscale();
+    cursor: pointer;
+}
+
+#btstart {
+    position: absolute;
+    top: 3rem;
+    left: 45.8rem;
+}
+
+#botoes input {
+    display: none;
+}
+
+.btpress {
+    height: 3rem !important;
+    padding-top: 0.5rem;
+}
+
+#btreset {
+    position: absolute;
+    transform: rotate(50deg);
+    top: 9.4rem;
+    left: 61rem;
+}
+
+#btreset img:active {
+    height: 3rem !important;
+    padding-top: 0.5rem;
+}
