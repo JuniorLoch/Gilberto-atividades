@@ -1,0 +1,67 @@
+#artigos {
+    background-color: #3d4149;
+    width: 50%;
+    height: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    margin-top: 5rem;
+}
+
+.artigo {
+    background-color: #61656b;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    height: auto;
+    overflow: hidden;
+    box-shadow: #424549 0rem 0.1rem 0.3rem;
+
+    display: flex;
+    flex-direction: reverse;
+
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: lightgray;
+}
+
+.artigo:hover {
+    z-index: 1;
+    filter: drop-shadow(0 0 1rem crimson);
+    cursor: pointer;
+}
+
+.artigo:hover .conteudo h3 {
+    text-decoration: underline;
+    color: #5c96c3;
+}
+
+.artigo img {
+    width: 25rem;
+    height: 10rem;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin-right: 1rem;
+}
+
+.conteudo label {
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    width: max-content;
+    height: fit-content;
+    background-color: #5c96c3;
+    border-radius: 0.5rem;
+
+    text-align: center;
+}
+
+.conteudo {
+    width: 100%;
+    display: grid;
+    align-items: stretch;
+    float: right;
+    justify-items: end;
+    align-content: space-between;
+}
+
+.conteudo h3 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
