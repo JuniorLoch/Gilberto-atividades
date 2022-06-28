@@ -26,7 +26,7 @@ function Home() {
     }, []);
 
     return (
-        <div id="container">
+        <div className="container">
             <Cabecalho />
             <Artigo vetartigos={artigos} />
         </div>

@@ -20,17 +20,14 @@
 
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     color: lightgray;
+    transition: all 0.2s;
 }
 
 .artigo:hover {
     z-index: 1;
     filter: drop-shadow(0 0 1rem crimson);
     cursor: pointer;
-}
-
-.artigo:hover .conteudo h3 {
-    text-decoration: underline;
-    color: #5c96c3;
+    background-color: #7e8186;
 }
 
 .artigo img {

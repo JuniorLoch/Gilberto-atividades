@@ -36,13 +36,14 @@ function Descricao() {
     return (
         <div>
             <Cabecalho />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <p>{Artigo.titulo}</p>
-            <p>{id}</p>
+            <article className="artdesc container">
+                <h3>{Artigo.titulo}</h3>
+                <div className="catdesc">
+                    <label>{Artigo.categoria}</label>
+                </div>
+                <img alt="imgartdesc" src={Artigo.capa} />
+                <h4 className="contdesc">{Artigo.subtitulo}</h4>
+            </article>
         </div>
     );
 }

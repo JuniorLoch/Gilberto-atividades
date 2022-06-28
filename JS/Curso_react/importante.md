@@ -15,7 +15,7 @@
 
 > npm install -g cross-env@7.0.3
 
-## Após instalação, adicionar no package.json, scripts start:""
+## Caso novo projeto, adicionar no package.json, scripts start:""
 
 > cross-env BROWSER=none
 
