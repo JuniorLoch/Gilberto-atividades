@@ -1,0 +1,161 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerFilme li {
+    list-style: none;
+    padding: 0.5rem;
+}
+
+.containerFilme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(168, 238, 243);
+    width: 50rem;
+    box-shadow: 0 0 0.5rem rgb(15, 226, 226);
+    border-radius: 0.7rem;
+    overflow: hidden;
+    padding: 0.3rem 0.3rem 2rem 0.3rem;
+
+    transition: all 0.3s;
+}
+
+.containerFilme:hover {
+    box-shadow: 0 0 0.5rem rgb(255, 42, 88);
+}
+
+.headerFilme {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.inglesFilme {
+    width: 45rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 1rem 1rem 1rem !important;
+    margin-top: -0.4rem;
+
+    font-size: 12pt;
+    background: linear-gradient(0deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.headerFilme p {
+    font-size: 20pt;
+    background: linear-gradient(0deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    padding: 1rem 1rem 0 1rem;
+    margin: 0 0 0 0;
+}
+
+.imagemFilme img {
+    width: 60rem;
+    border-radius: 1rem;
+}
+
+.descFilme div:first-of-type {
+    font-size: 20pt;
+    background: linear-gradient(0deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.descFilme div:last-of-type {
+    font-size: 12pt;
+
+    background: linear-gradient(0deg, #2c46b9, #742bbd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.avalFilme {
+    width: 49rem;
+}
+
+.avalFilme div:first-of-type {
+    font-size: 20pt;
+    font-weight: 400;
+
+    background: linear-gradient(0deg, #2c46b9, #742bbd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    display: flex;
+    align-items: center;
+}
+
+.avalFilme div:first-of-type svg {
+    fill: rgb(212, 212, 7);
+    height: 3rem;
+    width: 3rem;
+}
+
+.avalFilme div:last-of-type {
+    font-size: 12pt;
+    font-weight: 400;
+
+    margin-top: -0.5rem;
+
+    background: linear-gradient(0deg, #2c46b9, #742bbd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btsFilme a {
+    font-weight: 500;
+
+    background-color: rgb(255, 75, 90);
+    border-radius: 0.4rem;
+    padding: 1rem;
+
+    transition: all 0.3s;
+}
+
+.btsFilme a:hover {
+    background-color: rgb(255, 29, 48);
+}
+
+a:-webkit-any-link {
+    color: aliceblue !important;
+}
+
+.btsFilme a:first-of-type {
+    margin-right: 1rem;
+}
+
+#telacarregando {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+#telacarregando p {
+    font-size: 25pt;
+    font-weight: 600;
+
+    background: linear-gradient(0deg, #2c46b9, #742bbd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin: 0 0 0 0;
+}

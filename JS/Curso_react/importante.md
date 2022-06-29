@@ -19,6 +19,12 @@
 
 > cross-env BROWSER=none
 
-# intalar rotas para react, dentro da pasta do projeto
+# Dependencias do react específicas, instalar na pasta do projeto:
 
-> npm install react-router-dom
+## react Router DOM, Rotas
+
+> npm install react-router-dom --save
+
+## Axios, gerenciamento de APIs
+
+> npm install axios@0.27.2 --save

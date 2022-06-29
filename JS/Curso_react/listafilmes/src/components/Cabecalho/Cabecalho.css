@@ -1,0 +1,22 @@
+#cabecalho {
+    display: flex;
+    flex-direction: row;
+
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+    background: linear-gradient(90deg, #6dd3a0, #84e0dc);
+}
+
+#cabecalho h3 {
+    font-size: 25pt;
+    background: linear-gradient(0deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#cabecalho svg {
+    width: 7rem;
+    fill: rgb(41, 114, 209);
+}

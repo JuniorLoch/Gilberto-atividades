@@ -1,0 +1,150 @@
+#navegador {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 0 0 0;
+    padding: 0 0 0 0rem;
+    background: linear-gradient(90deg, #7fded0, #1bc4b6);
+
+    right: 0rem;
+
+    width: 20rem;
+
+    position: absolute;
+}
+
+#navegador header {
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 7.2rem;
+    z-index: 2;
+    transition: all 0.5s;
+}
+
+.navheadabre {
+    animation: abrenav 0.3s forwards;
+}
+
+.fechanav {
+    animation: desaparecer 0.4s forwards;
+}
+
+.abrenav {
+    animation: reaparecer 0.4s forwards;
+}
+
+#navegador header h2 {
+    color: #2875c5;
+    margin-right: 1rem;
+}
+
+#navegador li {
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    z-index: 1;
+}
+
+#navegador li:hover {
+    background: linear-gradient(90deg, #34f3e3, #6dfde5);
+    box-shadow: 0 0.1rem 0.5rem rgb(122, 122, 122);
+}
+
+#navegador li p {
+    padding: 1rem;
+    color: #2875c5;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+a:-webkit-any-link {
+    color: #2875c5;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#navegador svg {
+    fill: #2875c5;
+    width: 3rem !important;
+}
+@keyframes abrenav {
+    0% {
+        background: linear-gradient(90deg, #7fded0, #1bc4b6);
+    }
+    6% {
+        background: linear-gradient(90deg, #7fded0, #25c7b9);
+    }
+    12.5% {
+        background: linear-gradient(90deg, #7fded0, #2fcabd);
+    }
+    18.5% {
+        background: linear-gradient(90deg, #7fded0, #3acdc1);
+    }
+    25% {
+        background: linear-gradient(90deg, #7fded0, #44d1c5);
+    }
+    31% {
+        background: linear-gradient(90deg, #7fded0, #4fd4c9);
+    }
+    37.5% {
+        background: linear-gradient(90deg, #7fded0, #59d7cd);
+    }
+    43.5% {
+        background: linear-gradient(90deg, #7fded0, #64dad1);
+    }
+    50% {
+        background: linear-gradient(90deg, #7fded0, #6eded4);
+    }
+    56% {
+        background: linear-gradient(90deg, #7fded0, #79e1d8);
+    }
+    62.5% {
+        background: linear-gradient(90deg, #7fded0, #83e4dc);
+    }
+    68.5% {
+        background: linear-gradient(90deg, #7fded0, #8ee7e0);
+    }
+    75% {
+        background: linear-gradient(90deg, #7fded0, #98ebe4);
+    }
+    85% {
+        background: linear-gradient(90deg, #7fded0, #a3eee8);
+    }
+    95% {
+        background: linear-gradient(90deg, #7fded0, #adf1ec);
+    }
+    100% {
+        background: linear-gradient(90deg, #7fded0, #b8f5f0);
+    }
+}
+
+@keyframes desaparecer {
+    0% {
+        opacity: 100%;
+        margin-top: 0rem;
+    }
+    50% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 0%;
+        margin-top: -6rem;
+    }
+}
+
+@keyframes reaparecer {
+    0% {
+        opacity: 0%;
+        margin-top: -6rem;
+    }
+    30% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+        margin-top: 0rem;
+    }
+}
