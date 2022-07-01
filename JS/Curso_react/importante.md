@@ -32,3 +32,7 @@
 ## Axios, gerenciamento de APIs
 
 > npm install axios@0.27.2 --save
+
+## firebase, para utilizar o firebase 👍
+
+> npm install firebase@^8.8.1
