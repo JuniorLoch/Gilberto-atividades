@@ -17,10 +17,8 @@ class Listafilmes extends Component {
     componentDidMount() {
         this.getFilmes().then((result) => {
             this.setState({ filmes: result });
-        });
-        setTimeout(() => {
             this.setState({ carregado: true });
-        }, 1000);
+        });
         // let filmes = this.getFilmes();
         // console.log("Var Filmes: " + filmes);
         // this.setState({ filmes: filmes });
@@ -30,7 +28,7 @@ class Listafilmes extends Component {
     }
 
     async getFilmes() {
-        const response = await api.get("movie/now_playing", {
+        const response = await api.get("/movie/now_playing", {
             params: {
                 api_key: "28fc232cc001c31e8a031f419d0a14ca",
                 language: "pt-BR",
@@ -38,6 +36,7 @@ class Listafilmes extends Component {
             },
         });
 
+        // console.log(response.data.results);
         return response.data.results;
     }
 
@@ -54,7 +53,7 @@ class Listafilmes extends Component {
                                 </li>
                                 <li className="inglesFilme">{filme.original_title}</li>
                                 <li className="imagemFilme">
-                                    <img src={"https://image.tmdb.org/t/p/original/" + filme.backdrop_path} />
+                                    <img alt="imagem filme" src={"https://image.tmdb.org/t/p/original/" + filme.backdrop_path} />
                                 </li>
                                 <li className="descFilme">
                                     <div>Descricao: </div>
@@ -78,7 +77,7 @@ class Listafilmes extends Component {
         ) : (
             <div id="telacarregando">
                 <p>Carregando</p>
-                <img src={require("../../assets/carregando.gif")} />
+                <img alt="imagem carregamento" src={require("../../assets/carregando.gif")} />
             </div>
         );
     }

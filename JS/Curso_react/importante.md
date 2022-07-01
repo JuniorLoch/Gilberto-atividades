@@ -15,6 +15,10 @@
 
 > npm install -g cross-env@7.0.3
 
+## caso for realizar build, instalar globalmente o cli do netlify
+
+> npm install -g netlify-cli
+
 ## Caso novo projeto, adicionar no package.json, scripts start:""
 
 > cross-env BROWSER=none

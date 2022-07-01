@@ -1,0 +1,15 @@
+.texto {
+    margin-top: 5rem;
+
+    font-size: 48pt;
+    font-weight: 700;
+
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.emoji {
+    font-size: 56pt;
+}

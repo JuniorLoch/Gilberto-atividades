@@ -5,6 +5,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(180deg, rgba(223, 255, 252, 1) 0%, rgba(193, 255, 249, 1) 100%) fixed;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;

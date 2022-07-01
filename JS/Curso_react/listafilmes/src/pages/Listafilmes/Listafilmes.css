@@ -100,12 +100,6 @@
     align-items: center;
 }
 
-.avalFilme div:first-of-type svg {
-    fill: rgb(212, 212, 7);
-    height: 3rem;
-    width: 3rem;
-}
-
 .avalFilme div:last-of-type {
     font-size: 12pt;
     font-weight: 400;
@@ -118,6 +112,12 @@
     -webkit-text-fill-color: transparent;
 }
 
+.btsFilme {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .btsFilme a {
     font-weight: 500;
 
@@ -128,8 +128,14 @@
     transition: all 0.3s;
 }
 
+.btsFilme a:nth-child(2) {
+    margin-right: 1rem;
+    color: aliceblue !important;
+}
+
 .btsFilme a:hover {
     background-color: rgb(255, 29, 48);
+    cursor: pointer;
 }
 
 a:-webkit-any-link {
