@@ -36,3 +36,7 @@
 ## firebase, para utilizar o firebase 👍
 
 > npm install firebase@^8.8.1
+
+## toastify, notificacoes de operacoes 
+
+> npm install react-toastify --save
