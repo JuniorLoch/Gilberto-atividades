@@ -16,6 +16,7 @@
 .inputs {
     display: flex;
     flex-direction: column;
+    width: 40vw;
 }
 
 .inputs input {
@@ -25,8 +26,9 @@
 
 .radioselecao {
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     align-items: center;
+    justify-content: center;
     margin-bottom: 1rem;
 }
 
@@ -53,6 +55,11 @@
     font-size: calc(1rem + 2vmin);
     font-weight: 600;
     color: aliceblue;
+}
+
+.inputs div {
+    display: flex;
+    flex-direction: column;
 }
 
 .bt:hover {

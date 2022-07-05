@@ -9,12 +9,16 @@ function App() {
     translate.key = process.env.GOOGLE_KEY;
 
     //dentro de usestate() se passa o valor padrao desse estado
+    // states da pesquisa
     const [nome, setNome] = useState();
     const [dataNasc, setDataNasc] = useState(); // eis que estados unidos mês na data vem primeiro.
     const [sexo, setSexo] = useState();
     const [salvar, setSalvar] = useState(false); // meio redundante mas nao pensei em outra forma sem usar onchange() no input
     const [pessoa, setPessoa] = useState();
     const [id, setId] = useState();
+
+    //states da autenticacao
+    const [userUID, setUserUID] = useState();
 
     const rnome = useRef();
     const rdatanasc = useRef();
@@ -266,40 +270,61 @@ function App() {
         }
     }
 
-    async function autenticarUsuario() {
-        if (ruser.current.value && rpass.current.value) {
-            await firebase
-                .auth()
-                .signInWithEmailAndPassword(ruser.current.value, rpass.current.value)
-                .then((user) => {
-                    toast.success("usuario Autenticado com sucesso! " + user);
-                })
-                .catch((error) => {
-                    toast.error("Erro ao logar: " + error);
-                });
+    async function autenticarUsuario(op) {
+        if (op === "entrar") {
+            if (ruser.current.value && rpass.current.value) {
+                await firebase
+                    .auth()
+                    .signInWithEmailAndPassword(ruser.current.value, rpass.current.value)
+                    .then((user) => {
+                        toast.success("usuario Autenticado com sucesso! ");
+                        setUserUID(user.user.uid);
+                    })
+                    .catch((error) => {
+                        translate(error, "Portuguese").then((errotrad) => {
+                            toast.error(errotrad);
+                        });
+                    });
+            } else {
+                toast.error("Email ou senha vazios!");
+            }
+        }
+        if (op === "sair") {
+            setUserUID(undefined);
+            setPessoa(undefined);
+            toast.success("Logout realizado com sucesso");
         }
     }
 
     return (
         <div className="App">
             <header className="App-header">
-                <p>Login</p>
                 <form className="inputs">
-                    <label>Email</label>
-                    <input ref={ruser} type="email"></input>
-                    <label>Senha</label>
-                    <input ref={rpass} type="password"></input>
-                    <button type="button" onClick={autenticarUsuario} id="btenviar" className="bt">
-                        Logar
+                    <p>{userUID ? "Logado com id " + userUID : "Login"}</p>
+                    <div className={userUID ? "hidden" : ""}>
+                        <label>Email</label>
+                        <input ref={ruser} type="email"></input>
+                        <label>Senha</label>
+                        <input ref={rpass} type="password"></input>
+                    </div>
+
+                    <button
+                        type="button"
+                        onClick={() => {
+                            autenticarUsuario(userUID ? "sair" : "entrar");
+                        }}
+                        id={userUID ? "btexcluir" : "btenviar"}
+                        className="bt"
+                    >
+                        {userUID ? "Sair" : "Logar"}
                     </button>
-                    <button type="button" onClick={cadastrarUsuario} id="btlistar" className="bt">
+                    <button type="button" onClick={cadastrarUsuario} id="btlistar" className={userUID ? "hidden" : "bt"}>
                         Cadastrar
                     </button>
                 </form>
 
-                <p>Firebase</p>
-
-                <form onSubmit={setStates} className="inputs">
+                <form onSubmit={setStates} className={userUID ? "inputs" : "inputs hidden"}>
+                    <p>Firebase</p>
                     <label>id</label>
                     <input ref={rid} type="text"></input>
                     <label>Nome</label>
