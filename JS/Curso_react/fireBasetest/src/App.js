@@ -2,8 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import firebase from "./firebaseConnection";
 import { toast } from "react-toastify";
+import translate from "translate";
 
 function App() {
+    translate.engine = "google";
+    translate.key = process.env.GOOGLE_KEY;
+
     //dentro de usestate() se passa o valor padrao desse estado
     const [nome, setNome] = useState();
     const [dataNasc, setDataNasc] = useState(); // eis que estados unidos mês na data vem primeiro.
@@ -17,6 +21,9 @@ function App() {
     const rmasc = useRef();
     const rfem = useRef();
     const rid = useRef();
+
+    const ruser = useRef();
+    const rpass = useRef();
 
     function setStates(e) {
         e.preventDefault();
@@ -63,6 +70,9 @@ function App() {
     }
 
     function editarpessoa() {
+        let dataFormat = new Date(rdatanasc.current.value);
+        dataFormat.setDate(dataFormat.getDate() + 1);
+        dataFormat = dataFormat.toLocaleDateString();
         if (id) {
             firebase
                 .firestore()
@@ -70,7 +80,7 @@ function App() {
                 .doc(id)
                 .update({
                     nome: rnome.current.value,
-                    data_nascimento: rdatanasc.current.value,
+                    data_nascimento: dataFormat,
                     sexo: rmasc.current.checked ? "Masculino" : rfem.current.checked ? "Feminino" : "Nao informado",
                 })
                 .then(() => {
@@ -82,8 +92,10 @@ function App() {
                         sexo: rmasc.current.checked ? "Masculino" : rfem.current.checked ? "Feminino" : "Nao informado",
                     });
                 })
-                .catch(() => {
-                    toast.error("id nao encontrado, busque a pessoa para editar");
+                .catch((error) => {
+                    translate(error, "Portuguese").then((errotrad) => {
+                        toast.error(errotrad);
+                    });
                 });
         } else {
             toast.error("algo deu errado");
@@ -100,10 +112,12 @@ function App() {
                 .then(() => {
                     toast.success("removido com sucesso!");
                     rid.current.value = "";
+                    rdatanasc.current.value = "";
                     rnome.current.value = "";
                     rmasc.current.checked = false;
                     rfem.current.checked = false;
                     setPessoa(undefined);
+                    setId(undefined);
                 });
         } else {
             toast.error("id nao encontrado, busque a pessoa para remover");
@@ -123,12 +137,23 @@ function App() {
             .where("sexo", "==", rmasc.current.checked ? "Masculino" : rfem.current.checked ? "Feminino" : "Nao informado")
             .get()
             .then((result) => {
-                result.forEach((doc) => {
-                    toast.success("elemento encontrado!" + doc.id);
-                });
+                if (!result.empty) {
+                    result.forEach((doc) => {
+                        toast.success("Pessoa encontrada! id: " + doc.id);
+                        setId(doc.id);
+                        setPessoa({ id: doc.id, nome: doc.data().nome, data_nascimento: doc.data().data_nascimento, sexo: doc.data().sexo });
+                    });
+                } else {
+                    toast.error("Nenhuma pessoa com esses dados foi encontrada");
+                }
+                // if (!result.data().exists()) {
+                //
+                // }
             })
             .catch((error) => {
-                toast.error("elemento nao encontrado! " + error);
+                translate(error, "Portuguese").then((errotrad) => {
+                    toast.error(errotrad);
+                });
             });
     }
 
@@ -183,16 +208,19 @@ function App() {
                                     setPessoa({ id: Ref.id, nome: nome, data_nascimento: dataNasc, sexo: sexo });
                                     setSalvar(false);
                                 })
-                                .catch((erro) => {
-                                    toast.error("Ocorreu um erro ao salvar, cheque seu console");
+                                .catch((error) => {
+                                    translate(error, "Portuguese").then((errotrad) => {
+                                        toast.error(errotrad);
+                                    });
                                     setPessoa(undefined);
-                                    console.log(erro);
                                     setSalvar(false);
                                 });
                         }
                     })
                     .catch((error) => {
-                        console.log("erro ao buscar: " + error);
+                        translate(error, "Portuguese").then((errotrad) => {
+                            toast.error(errotrad);
+                        });
                         setPessoa(undefined);
                         setSalvar(false);
                     });
@@ -222,10 +250,54 @@ function App() {
         rid.current.value = id ? id : "";
     }, [id]);
 
+    async function cadastrarUsuario() {
+        if (ruser.current.value && rpass.current.value) {
+            await firebase
+                .auth()
+                .createUserWithEmailAndPassword(ruser.current.value, rpass.current.value)
+                .then((user) => {
+                    toast.success("usuario cadastrado com sucesso! " + user);
+                })
+                .catch((error) => {
+                    translate(error, "Portuguese").then((errotrad) => {
+                        toast.error(errotrad);
+                    });
+                });
+        }
+    }
+
+    async function autenticarUsuario() {
+        if (ruser.current.value && rpass.current.value) {
+            await firebase
+                .auth()
+                .signInWithEmailAndPassword(ruser.current.value, rpass.current.value)
+                .then((user) => {
+                    toast.success("usuario Autenticado com sucesso! " + user);
+                })
+                .catch((error) => {
+                    toast.error("Erro ao logar: " + error);
+                });
+        }
+    }
+
     return (
         <div className="App">
             <header className="App-header">
-                <p>Firebase test</p>
+                <p>Login</p>
+                <form className="inputs">
+                    <label>Email</label>
+                    <input ref={ruser} type="email"></input>
+                    <label>Senha</label>
+                    <input ref={rpass} type="password"></input>
+                    <button type="button" onClick={autenticarUsuario} id="btenviar" className="bt">
+                        Logar
+                    </button>
+                    <button type="button" onClick={cadastrarUsuario} id="btlistar" className="bt">
+                        Cadastrar
+                    </button>
+                </form>
+
+                <p>Firebase</p>
 
                 <form onSubmit={setStates} className="inputs">
                     <label>id</label>

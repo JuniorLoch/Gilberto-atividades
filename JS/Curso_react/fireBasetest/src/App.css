@@ -36,6 +36,10 @@
     height: 2.5vh;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .inputs button {
     height: 3rem;
     border-radius: 0.5rem;

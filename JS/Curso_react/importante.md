@@ -35,8 +35,12 @@
 
 ## firebase, para utilizar o firebase 👍
 
-> npm install firebase@^8.8.1
+> npm install firebase@^8.8.1 --save
 
-## toastify, notificacoes de operacoes 
+## toastify, notificacoes de operacoes
 
 > npm install react-toastify --save
+
+## translate, pacote de traducao simples
+
+> npm install translate --save
