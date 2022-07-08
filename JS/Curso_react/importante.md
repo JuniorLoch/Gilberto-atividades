@@ -29,6 +29,10 @@
 
 > npm install react-router-dom --save
 
+## styled components, gerenciar componentes de estilo
+
+> npm install styled-components --save
+
 ## Axios, gerenciamento de APIs
 
 > npm install axios@0.27.2 --save
@@ -44,3 +48,7 @@
 ## translate, pacote de traducao simples
 
 > npm install translate --save
+
+## react icons, pacote de icones do react
+
+> npm install react-icons --save
