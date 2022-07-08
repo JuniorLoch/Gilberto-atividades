@@ -1,0 +1,10 @@
+com/example/provap1/BuildConfig.java
+ com.example.provap1.BuildConfig
+Entidades/Dados.java
+ Entidades.Dados
+Entidades/Conta.java
+ Entidades.Conta
+com/example/provap1/MainActivity.java
+ com.example.provap1.MainActivity
+com/example/provap1/Calculadora.java
+ com.example.provap1.Calculadora
