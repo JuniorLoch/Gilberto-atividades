@@ -20,8 +20,8 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         background-attachment: fixed;
         backdrop-filter: blur(0.2rem);
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
 
         ::-webkit-scrollbar{
             display: none;

@@ -11,17 +11,25 @@
 
 > npm list -g
 
-## Caso nao instalado ainda, instalar globalmente o pacote cross-env
+# Pacotes globais
+
+### cross-env, controle das variaveis de ambiente por comando
 
 > npm install -g cross-env@7.0.3
 
-## caso for realizar build, instalar globalmente o cli do netlify
+### Caso novo projeto, adicionar seegundo comando no package.json, scripts start:""
+
+> cross-env BROWSER=none
+
+### modulo client netlify, envio para producao
 
 > npm install -g netlify-cli
 
-## Caso novo projeto, adicionar no package.json, scripts start:""
+### json server, criacao de APIs para ambiente de desenvolvimento
 
-> cross-env BROWSER=none
+> npm install -g json-server
+
+> > json-server server.json -p 3333
 
 # Dependencias do react específicas, instalar na pasta do projeto:
 
@@ -52,3 +60,11 @@
 ## react icons, pacote de icones do react
 
 > npm install react-icons --save
+
+## redux, controle de states globais
+
+> npm install redux react-redux --save
+
+## immer, para controle de imutabilidade
+
+> npm install immer --save
