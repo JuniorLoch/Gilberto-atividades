@@ -2,23 +2,19 @@
 import React, { useState, useEffect } from "react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
 
 //modulos
 import api from "../../services/api";
 import { Container, ContainerViagem, Painel, PainelViagem, Texto, BtReservar } from "../../Styles/styles";
+import { adicionaReserva } from "../../store/modules/reservas/actions";
 
 function Home() {
     const [viagens, setViagens] = useState();
     const [carregado, setCarregado] = useState(false);
     const dispatch = useDispatch();
 
-    function reservar(viagem) {
-        dispatch({
-            type: "add_reservas",
-            viagem,
-        });
-        toast.success("Viagem Reservada!");
+    function reservar(id) {
+        dispatch(adicionaReserva(id));
     }
 
     useEffect(() => {
@@ -39,7 +35,7 @@ function Home() {
                                 <img alt={viagem.title} src={viagem.image} />
                                 <BtReservar
                                     onClick={() => {
-                                        reservar(viagem);
+                                        reservar(viagem.id);
                                     }}
                                 >
                                     <FaTelegramPlane size="1.8rem" />

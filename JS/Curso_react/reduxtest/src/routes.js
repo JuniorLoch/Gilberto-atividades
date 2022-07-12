@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import history from "./services/history";
 
 //paginas
 import Home from "./pages/Home/Home";
@@ -9,11 +10,11 @@ import Cabecalho from "./components/Cabecalho/Cabecalho";
 
 function RoutesApp() {
     return (
-        <BrowserRouter>
+        <BrowserRouter history={history}>
             <Cabecalho />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/reservas/:id" element={<Reservas />} />
+                <Route path="/reservas" element={<Reservas />} />
             </Routes>
         </BrowserRouter>
     );

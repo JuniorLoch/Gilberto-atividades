@@ -19,12 +19,10 @@ function Cabecalho() {
                 </Texto>
             </ContainerH>
 
-            <Link to="/reservas/1">
+            <Link to="/reservas">
                 <ContainerH>
                     <Texto>
-                        <h3>
-                            Voce tem {numReservas} reserva{numReservas > 1 ? "s" : ""}
-                        </h3>
+                        <h3>{numReservas < 1 ? "Você não possui nenhuma reserva" : "Voce tem " + numReservas + " reserva" + (numReservas > 1 ? "s" : "")}</h3>
                     </Texto>
                 </ContainerH>
             </Link>

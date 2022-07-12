@@ -68,3 +68,11 @@
 ## immer, para controle de imutabilidade
 
 > npm install immer --save
+
+## redux saga, para controle asincrono para redux
+
+> npm install redux-saga --save
+
+## history, controle de rotas
+
+> npm install history --save
