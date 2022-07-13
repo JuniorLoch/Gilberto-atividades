@@ -21,9 +21,11 @@
 
 > cross-env BROWSER=none
 
-### modulo client netlify, envio para producao
+### modulo client netlify ou firebase cli, envio para producao
 
 > npm install -g netlify-cli
+
+> npm install -g firebase-tools
 
 ### json server, criacao de APIs para ambiente de desenvolvimento
 
@@ -69,7 +71,7 @@
 
 > npm install immer --save
 
-## redux saga, para controle asincrono para redux
+## redux saga, middleware de controle asincrono para redux
 
 > npm install redux-saga --save
 
