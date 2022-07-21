@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         outline:0;
         box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
     }
 
     html, body, #root{
@@ -20,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
         background-attachment: fixed;
         backdrop-filter: blur(0.2rem);
 
-        font-family: "Roboto", sans-serif;
+        font-family: "Roboto", sans-serif, monospace;
 
         ::-webkit-scrollbar{
             display: none;
@@ -29,6 +30,11 @@ export const GlobalStyle = createGlobalStyle`
 
     button{
         cursor: pointer;
+        border: none;
+    }
+
+    input{
+        border: none;
     }
 
     a, a:-webkit-any-link {

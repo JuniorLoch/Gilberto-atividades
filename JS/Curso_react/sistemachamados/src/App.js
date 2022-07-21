@@ -1,11 +1,13 @@
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { GlobalStyle } from "./styles/global";
 import RoutesApp from "./Routes/routes";
-import firebase from "./services/firebaseConnection";
+import AuthProvider from "./contexts/auth";
 
 function App() {
     return (
-        <>
+        <AuthProvider>
             <ToastContainer
                 position="top-right"
                 autoClose={3000}
@@ -20,7 +22,7 @@ function App() {
             />
             <GlobalStyle />
             <RoutesApp />
-        </>
+        </AuthProvider>
     );
 }
 

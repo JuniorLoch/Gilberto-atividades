@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../contexts/auth";
+import Carregando from "../pages/Carregando/Carregando";
 
 function RouteWrapper({ children }) {
-    const carregando = false;
-    const logado = false;
+    const { logado, carregando } = useContext(AuthContext);
 
     if (carregando) {
-        return <div>Carregando</div>;
+        return <Carregando />;
     }
 
-    return logado ? children : <Navigate to="/" />;
+    // console.log(children);
+    // console.log(carregando);
+    // if (children.length) {
+    //     children.every((child) => {
+    //         if (child.type.name !== "Menu") {
+    //             if (child.type.name === "Login" || child.type.name === "Cadastro") {
+    //                 return logado ? <Navigate to="/chamados" /> : children;
+    //             } else {
+    //                 return logado ? children : <Navigate to="/" />;
+    //             }
+    //         }
+    //     });
+    // } else {
+    if (children.type.name === "Login" || children.type.name === "Cadastro") {
+        return logado ? <Navigate to="/chamados" /> : children;
+    } else {
+        return logado ? children : <Navigate to="/" />;
+    }
+    // }
 }
 export default RouteWrapper;
