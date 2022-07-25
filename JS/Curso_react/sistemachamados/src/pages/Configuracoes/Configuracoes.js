@@ -4,8 +4,8 @@ import Titulo from "../../components/Titulo/Titulo";
 
 function Configuracoes() {
     return (
-        <Titulo texto="Pagina configuracoes">
-            <GoGear size="6vh" />
+        <Titulo texto="Configuracoes">
+            <GoGear size="3rem" />
         </Titulo>
     );
 }

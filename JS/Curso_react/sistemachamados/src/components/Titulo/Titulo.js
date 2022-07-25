@@ -15,7 +15,7 @@ function Titulo({ children, texto }) {
                     </span>
 
                     <BtnLogout onClick={deslogarUsuario} type="button">
-                        <HiLogin size="5vh" color="white" />
+                        <HiLogin size="2.5rem" color="white" />
                     </BtnLogout>
                 </TituloText>
             </PainelTitulo>

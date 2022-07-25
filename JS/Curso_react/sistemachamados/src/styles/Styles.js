@@ -6,9 +6,10 @@ import FundoUser from "../assets/background-user.jpg";
 //Genericos
 //  Containeres
 export const Cabecalho = styled.header`
-    height: 100vh;
+    height: 100%;
     @media screen and (max-width: 700px) {
-        min-height: 14vh;
+        width: 100%;
+        max-height: 5rem;
     }
 `;
 
@@ -32,8 +33,14 @@ export const ContainerPaginas = styled(ContainerR)`
     justify-content: flex-start;
     align-items: flex-start;
 
+    height: 100%;
+
     @media screen and (max-width: 700px) {
+        min-width: 100%;
+        min-height: 100%;
         flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 `;
 
@@ -60,6 +67,10 @@ export const PainelPers = styled(PainelC)`
     ${(props) => (props.margin ? "margin: " + props.margin : "")};
     ${(props) => (props.bradius ? "border-radius: " + props.bradius : "")};
     ${(props) => (props.largMin ? "min-width: " + props.largMin : "min-width: 100%;")};
+
+    @media screen and (max-width: 700px) {
+        width: 100%;
+    }
 `;
 
 //  Misc
@@ -98,38 +109,42 @@ export const ContainerAvatar = styled(ContainerC)`
     padding: 5vh 0;
 
     @media screen and (max-width: 700px) {
-        flex-direction: row;
-        justify-content: flex-start;
-
-        padding: 5vh 3vw;
-        max-height: 14vh;
-        width: fit-content;
+        padding: 0.2rem 0.2rem;
+        width: 4.5rem;
+        max-height: 5rem;
     }
 `;
 
 export const ImagemUsuario = styled.img`
-    height: 30vh;
-    width: 30vh;
+    height: 10rem;
+    width: 10rem;
     border-radius: 5rem;
     box-shadow: 0 0 6px rgb(0, 0, 0, 0.7);
     overflow: hidden;
 
     @media screen and (max-width: 700px) {
-        height: 12vh;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-radius: 2.5rem;
     }
 `;
 
 export const ImagemUsuarioPerfil = styled(ContainerC)`
     svg {
-        margin-top: 32vh;
+        margin-top: 12rem;
         position: absolute;
-        filter: drop-shadow(0 0 3px rgb(0, 95, 180));
+        filter: drop-shadow(0px 1px 1px rgb(255, 255, 255));
         transition: all 0.5s;
         :hover {
             color: white !important;
             cursor: pointer;
             filter: drop-shadow(0 0 2px rgb(0, 0, 0));
             transform: scale(2) rotate(360deg);
+        }
+
+        @media screen and (max-width: 700px) {
+            margin-top: 6rem;
+            color: black !important;
         }
     }
 
@@ -156,12 +171,12 @@ export const PainelCabecalho = styled(PainelC)`
     background-color: #61a2d6;
 
     @media screen and (max-width: 700px) {
-        flex-direction: row;
-        margin: 0;
+        align-items: center;
+        width: 100%;
+        height: 5rem;
+
         padding: 0;
-        min-width: 100vw;
-        max-height: 14vh;
-        overflow: hidden;
+        flex-direction: row;
     }
 `;
 
@@ -200,7 +215,30 @@ export const BotaoLink = styled(TextoLink)`
 
     @media screen and (max-width: 700px) {
         margin: 0;
-        padding: 0 5vw;
+        padding: 1.4rem 0.5rem;
+        span {
+            margin-top: 0.3rem !important;
+        }
+    }
+    @media screen and (max-width: 1000px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        span {
+            margin-top: 1rem;
+        }
+    }
+`;
+
+export const BotaoNovo = styled(BotaoLink)`
+    min-width: fit-content !important;
+    border-radius: 0.3rem;
+
+    padding: 1rem 0.5rem;
+
+    svg {
+        margin: -0.7rem 0;
     }
 `;
 //  Titulo
@@ -208,6 +246,10 @@ export const ContainerTitulo = styled(ContainerC)`
     width: 80vw;
     height: 10vh;
     margin-top: 2rem;
+    @media screen and (max-width: 700px) {
+        margin-top: 1rem;
+        width: 100%;
+    }
 `;
 
 export const PainelTitulo = styled(PainelR)`
@@ -215,7 +257,7 @@ export const PainelTitulo = styled(PainelR)`
     height: 15vh;
 
     display: flex;
-    padding: 1rem 5vw;
+    padding: 1rem 0.5rem;
 
     box-shadow: 0rem 1px 0.2rem #7e7e7e;
 
@@ -225,13 +267,18 @@ export const PainelTitulo = styled(PainelR)`
         flex-direction: row;
         justify-content: space-between;
     }
+
+    @media screen and (max-width: 700px) {
+        justify-content: flex-start;
+        width: 100%;
+    }
 `;
 
 export const BtnLogout = styled.button`
     background-color: #ff3828;
     padding: 0.5rem 0.5rem;
     border-radius: 0.5rem;
-    margin: -0.5rem -3rem -0.5rem 0rem;
+    margin: -0.5rem 0rem -0.5rem 0rem;
 `;
 
 //  Paginas
@@ -240,9 +287,80 @@ export const ContainerContent = styled(ContainerC)`
     height: fit-content;
 `;
 
+export const Tabela = styled.table`
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+        padding: 0.5rem 0;
+        color: #0047bb;
+    }
+
+    td {
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+
+    tr {
+        border-bottom: 1px solid lightgray;
+        @media screen and (max-width: 700px) {
+            font-size: 9pt;
+        }
+    }
+
+    .botoes {
+        display: flex;
+        justify-content: center;
+
+        button {
+            margin-left: 0.5rem;
+            :first-child {
+                margin-left: 0;
+            }
+
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+            transition: all 0.5s;
+            :hover {
+                transform: scale(1.2);
+            }
+            svg {
+                color: lightgray;
+            }
+        }
+
+        .btdetalhes {
+            background-color: #3860a4;
+            box-shadow: 0 0.2rem 0 #2a4a7f;
+            :active {
+                background-color: #1f3860;
+            }
+        }
+        .btedit {
+            background-color: #eac94f;
+            box-shadow: 0 0.2rem 0 #bca13e;
+            :active {
+                background-color: #917b2d;
+            }
+        }
+    }
+`;
+
+export const ContainerComboBox = styled(ContainerR)`
+    justify-content: center;
+    max-width: 30%;
+    input {
+        min-width: 1.4rem;
+    }
+    @media screen and (max-width: 700px) {
+        max-width: 100%;
+    }
+`;
+
 //  Cadastro
 
 export const Formulario = styled.form`
+    ${(props) => (props.salvando ? " pointer-events: none;  cursor: not-allowed; filter: opacity(70%);" : "")};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -252,7 +370,16 @@ export const Formulario = styled.form`
         color: #61a2d6;
         font-weight: 700;
         font-size: 1.8rem;
-        margin: 0.5rem 0 0.5rem 0;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    textarea {
+        min-width: 60%;
+        min-height: 5rem;
+
+        border: 1px solid #83bdea;
+        background-color: #aed2ef;
+        padding: 0.5rem;
     }
 `;
 
@@ -262,6 +389,35 @@ export const Input = styled.input`
     min-width: 60%;
     height: 2.5rem;
     padding: 0.5rem;
+
+    :disabled {
+        cursor: not-allowed;
+        background-color: lightgray;
+    }
+`;
+
+export const ComboBox = styled.select`
+    min-width: 60%;
+    height: 2.5rem;
+    padding: 0.5rem;
+
+    border: 1.5px solid #83bdea;
+
+    font-size: 12pt;
+    font-weight: 600;
+    color: #1e6aa0;
+
+    background-color: #aed2ef;
+
+    :disabled {
+        cursor: not-allowed;
+        background-color: lightgray;
+    }
+
+    option {
+        font-weight: 600;
+        color: #1e6aa0;
+    }
 `;
 
 export const ContainerBts = styled(ContainerR)`
@@ -284,6 +440,9 @@ export const ContainerBts = styled(ContainerR)`
         }
         :nth-child(1) {
             margin-left: 1vw;
+        }
+        svg {
+            margin: -0.6rem 0rem -0.6rem -0.8rem;
         }
     }
 `;

@@ -19,15 +19,15 @@ function Menu() {
                 </ContainerAvatar>
                 <ContainerCBotoes>
                     <BotaoLink to="/chamados">
-                        <HiOutlineClipboardList size="6vh" />
+                        <HiOutlineClipboardList size="3rem" />
                         <span> Chamados</span>
                     </BotaoLink>
                     <BotaoLink to="/clientes">
-                        <BsFillPersonFill size="6vh" />
+                        <BsFillPersonFill size="3rem" />
                         <span> Clientes</span>
                     </BotaoLink>
                     <BotaoLink to="/configuracoes">
-                        <GoGear size="6vh" />
+                        <GoGear size="3rem" />
                         <span> Configurações</span>
                     </BotaoLink>
                 </ContainerCBotoes>

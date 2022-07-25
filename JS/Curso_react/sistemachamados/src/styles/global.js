@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html, body, #root{
-        min-height: 100%;
-        
+        height: 100%;
+        width: 100%;
     }
 
     body{

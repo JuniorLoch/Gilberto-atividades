@@ -9,6 +9,7 @@ import Cadastro from "../pages/Cadastro/Cadastro";
 import Perfil from "../pages/Perfil/Perfil";
 import Clientes from "../pages/Clientes/Clientes";
 import Configuracoes from "../pages/Configuracoes/Configuracoes";
+import NovoChamado from "../pages/NovoChamado/NovoChamado";
 
 //componentes
 import Menu from "../components/Menu/Menu";
@@ -26,6 +27,17 @@ function RoutesApp() {
                                 <ContainerPaginas>
                                     <Menu />
                                     <Chamados />
+                                </ContainerPaginas>
+                            </PrivateRoute>
+                        }
+                    />
+                    <Route
+                        path="/novochamado"
+                        element={
+                            <PrivateRoute>
+                                <ContainerPaginas>
+                                    <Menu />
+                                    <NovoChamado />
                                 </ContainerPaginas>
                             </PrivateRoute>
                         }
