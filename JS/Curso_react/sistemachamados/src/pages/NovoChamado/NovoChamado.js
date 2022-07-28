@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Titulo from "../../components/Titulo/Titulo";
 import { VscNewFile } from "react-icons/vsc";
@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 import { ComboBox, ContainerBts, ContainerC, ContainerComboBox, ContainerR, Formulario, ImagemCarregando, Input, PainelPers } from "../../styles/Styles";
 
 function NovoChamado() {
+    const { id } = useParams();
+
     const [salvando, setSalvando] = useState(false);
     const [clientes, setClientes] = useState([]);
     const [status, setStatus] = useState("");
@@ -38,6 +40,10 @@ function NovoChamado() {
                     });
                     setClientes(tclientes);
                     setCarregadoClientes(false);
+
+                    if (id) {
+                        editaChamado(tclientes);
+                    }
                 })
                 .catch((error) => {
                     console.log(error);
@@ -45,40 +51,87 @@ function NovoChamado() {
                 });
         }
         carregaClientes();
+        // console.log(id);
     }, []);
+
+    async function editaChamado(listaClientes) {
+        await firebase
+            .firestore()
+            .collection("Chamados")
+            .doc(id)
+            .get()
+            .then((snapshot) => {
+                const tchamado = snapshot.data();
+                // console.log(refCliente.current.defaultValue);
+                refAssunto.current.value = tchamado.assunto;
+                setStatus(tchamado.status);
+                refObservacao.current.value = tchamado.observacao;
+
+                let indexCli = listaClientes.findIndex((cliente) => {
+                    return cliente.id === tchamado.cliente;
+                });
+                if (indexCli >= 0) {
+                    refCliente.current.value = listaClientes[indexCli].id;
+                } else {
+                    console.error("Cliente nao encontrado");
+                }
+            })
+            .catch();
+    }
 
     async function salvarChamado(e) {
         e.preventDefault();
-        setSalvando(true);
+
         // console.log(
         //     "Cliente: " + refCliente.current.value + " Assunto: " + refAssunto.current.value + " Status: " + status + " Observação: " + refObservacao.current.value
         // );
         let tchamado = { cliente: refCliente.current.value, assunto: refAssunto.current.value, status, observacao: refObservacao.current.value };
-        if (tchamado.cliente === "" || tchamado.observacao === "") {
+        if (tchamado.cliente === "" || tchamado.observacao === "" || status == "") {
             toast.error("Todos os campos precisam estar preenchidos!");
         } else {
+            setSalvando(true);
             // let clienteIndex = clientes.findIndex((cliente) => {
             //     return tchamado.cliente === cliente.id;
             // });
             // tchamado = { ...tchamado, cliente: clientes[clienteIndex].id + " - " + clientes[clienteIndex].nome };
             const hoje = new Date();
-            tchamado = { ...tchamado, funcionario: usuario.uid, dataCriacao: hoje.toLocaleDateString() };
-            await firebase
-                .firestore()
-                .collection("Chamados")
-                .add(tchamado)
-                .then(() => {
-                    toast.success("Chamado registrado com sucesso!");
-                    setSalvando(false);
-                    setTimeout(() => {
-                        navigate("/chamados");
-                    }, 500);
-                })
-                .catch((error) => {
-                    console.log(error);
-                    toast.error("Ocorreu um erro!");
-                    setSalvando(false);
-                });
+            tchamado = { ...tchamado, funcionario: usuario.uid, dataCriacao: hoje };
+            if (id) {
+                await firebase
+                    .firestore()
+                    .collection("Chamados")
+                    .doc(id)
+                    .set(tchamado)
+                    .then(() => {
+                        toast.success("Chamado Editado com sucesso!");
+                        setSalvando(false);
+                        setTimeout(() => {
+                            navigate("/chamados");
+                        }, 500);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toast.error("Ocorreu um erro!");
+                        setSalvando(false);
+                    });
+            } else {
+                await firebase
+                    .firestore()
+                    .collection("Chamados")
+                    .add(tchamado)
+                    .then(() => {
+                        toast.success("Chamado registrado com sucesso!");
+                        setSalvando(false);
+                        setTimeout(() => {
+                            navigate("/chamados");
+                        }, 500);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toast.error("Ocorreu um erro!");
+                        setSalvando(false);
+                    });
+            }
         }
     }
 
@@ -128,15 +181,15 @@ function NovoChamado() {
                     <label>Status</label>
                     <ContainerComboBox>
                         <ContainerC>
-                            <Input type="radio" name="status" value="Aberto" onChange={trocaStatus} />
+                            <Input type="radio" name="status" value="Aberto" onChange={trocaStatus} checked={status === "Aberto"} />
                             <span>Aberto</span>
                         </ContainerC>
                         <ContainerC>
-                            <Input type="radio" name="status" value="Em andamento" onChange={trocaStatus} />
+                            <Input type="radio" name="status" value="Em andamento" onChange={trocaStatus} checked={status === "Em andamento"} />
                             <span>Em andamento</span>
                         </ContainerC>
                         <ContainerC>
-                            <Input type="radio" name="status" value="Atendido" onChange={trocaStatus} />
+                            <Input type="radio" name="status" value="Atendido" onChange={trocaStatus} checked={status === "Atendido"} />
                             <span>Atendido</span>
                         </ContainerC>
                     </ContainerComboBox>

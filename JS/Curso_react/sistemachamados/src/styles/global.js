@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import imgFundo from "../assets/background.jpg";
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -15,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
-        background: #89CFF0;
+        background: url( ${imgFundo});
         background-position: center;
         background-size: cover;
         background-attachment: fixed;

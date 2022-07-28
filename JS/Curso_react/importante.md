@@ -63,6 +63,10 @@
 
 > npm install react-icons --save
 
+## InputMask, componente reacp de input com máscara
+
+> npm install react-input-mask --save
+
 ## redux, controle de states globais
 
 > npm install redux react-redux --save

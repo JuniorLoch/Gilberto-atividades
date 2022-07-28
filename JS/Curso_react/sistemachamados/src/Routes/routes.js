@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./privateRoute";
-import React, { Fragment } from "react";
+import React from "react";
 
 //paginas
 import Login from "../pages/Login/Login";
@@ -18,81 +18,101 @@ import { ContainerPaginas } from "../styles/Styles";
 function RoutesApp() {
     return (
         <BrowserRouter>
-            <Fragment>
-                <Routes>
-                    <Route
-                        path="/chamados"
-                        element={
-                            <PrivateRoute>
-                                <ContainerPaginas>
-                                    <Menu />
-                                    <Chamados />
-                                </ContainerPaginas>
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/novochamado"
-                        element={
-                            <PrivateRoute>
-                                <ContainerPaginas>
-                                    <Menu />
-                                    <NovoChamado />
-                                </ContainerPaginas>
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/perfil"
-                        element={
-                            <PrivateRoute>
-                                <ContainerPaginas>
-                                    <Menu />
-                                    <Perfil />
-                                </ContainerPaginas>
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/clientes"
-                        element={
-                            <PrivateRoute>
-                                <ContainerPaginas>
-                                    <Menu />
-                                    <Clientes />
-                                </ContainerPaginas>
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/configuracoes"
-                        element={
-                            <PrivateRoute>
-                                <ContainerPaginas>
-                                    <Menu />
-                                    <Configuracoes />
-                                </ContainerPaginas>
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/cadastro"
-                        element={
-                            <PrivateRoute>
-                                <Cadastro />
-                            </PrivateRoute>
-                        }
-                    />
-                    <Route
-                        path="/"
-                        element={
-                            <PrivateRoute>
-                                <Login />
-                            </PrivateRoute>
-                        }
-                    />
-                </Routes>
-            </Fragment>
+            <Routes>
+                <Route
+                    path="/chamados"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <Chamados />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/novochamado"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <NovoChamado />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/novochamado/:id"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <NovoChamado />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/perfil"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <Perfil />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/clientes"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <Clientes />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/clientes/:id"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <Clientes />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/configuracoes"
+                    element={
+                        <PrivateRoute>
+                            <ContainerPaginas>
+                                <Menu />
+                                <Configuracoes />
+                            </ContainerPaginas>
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/cadastro"
+                    element={
+                        <PrivateRoute>
+                            <Cadastro />
+                        </PrivateRoute>
+                    }
+                />
+                <Route
+                    path="/"
+                    element={
+                        <PrivateRoute>
+                            <Login />
+                        </PrivateRoute>
+                    }
+                />
+            </Routes>
         </BrowserRouter>
     );
 }

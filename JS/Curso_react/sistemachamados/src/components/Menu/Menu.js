@@ -26,7 +26,7 @@ function Menu() {
                         <BsFillPersonFill size="3rem" />
                         <span> Clientes</span>
                     </BotaoLink>
-                    <BotaoLink to="/configuracoes">
+                    <BotaoLink to="/perfil">
                         <GoGear size="3rem" />
                         <span> Configurações</span>
                     </BotaoLink>
