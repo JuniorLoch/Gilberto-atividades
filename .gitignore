@@ -1,4 +1,3 @@
 node_modules
-# Local Netlify folder
 .netlify
-JS/Curso_react/Biscoito da sorte/fortune-api
+.vscode
