@@ -12,15 +12,15 @@ import {
     Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateUsuarioDto } from './dtos/create-usuario.dto';
-import { UpdateUsuarioDto } from './dtos/update-usuario.dto';
-import { UsuarioService } from './usuario.service';
+import { CreateEnderecoDto } from './dtos/create-endereco.dto';
+import { UpdateEnderecoDto } from './dtos/update-endereco.dto';
+import { EnderecoService } from './endereco.service';
 
-@ApiTags('usuario')
-@Controller('usuario')
-export class UsuarioController {
-    @Inject(UsuarioService)
-    private readonly service: UsuarioService;
+@ApiTags('endereco')
+@Controller('endereco')
+export class EnderecoController {
+    @Inject(EnderecoService)
+    private readonly service: EnderecoService;
 
     @Get('/listar')
     async listarTodos() {
@@ -33,8 +33,8 @@ export class UsuarioController {
     }
 
     @Post()
-    async criar(@Body() usuario: CreateUsuarioDto) {
-        return await this.service.create(usuario).catch((err) => {
+    async criar(@Body() endereco: CreateEnderecoDto) {
+        return await this.service.create(endereco).catch((err) => {
             throw new HttpException(
                 {
                     statusCode: HttpStatus.BAD_REQUEST,
@@ -48,9 +48,9 @@ export class UsuarioController {
     @Put('/:id')
     async atualizar(
         @Param('id', ParseIntPipe) id: number,
-        @Body() usuario: UpdateUsuarioDto,
+        @Body() endereco: UpdateEnderecoDto,
     ) {
-        return this.service.update(id, usuario);
+        return this.service.update(id, endereco);
     }
 
     @Delete('/:id')

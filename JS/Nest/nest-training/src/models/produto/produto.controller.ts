@@ -12,15 +12,15 @@ import {
     Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreateUsuarioDto } from './dtos/create-usuario.dto';
-import { UpdateUsuarioDto } from './dtos/update-usuario.dto';
-import { UsuarioService } from './usuario.service';
+import { CreateProdutoDto } from './dtos/create-produto.dto';
+import { UpdateProdutoDto } from './dtos/update-produto.dto';
+import { ProdutoService } from './produto.service';
 
-@ApiTags('usuario')
-@Controller('usuario')
-export class UsuarioController {
-    @Inject(UsuarioService)
-    private readonly service: UsuarioService;
+@ApiTags('produto')
+@Controller('produto')
+export class ProdutoController {
+    @Inject(ProdutoService)
+    private readonly service: ProdutoService;
 
     @Get('/listar')
     async listarTodos() {
@@ -33,8 +33,8 @@ export class UsuarioController {
     }
 
     @Post()
-    async criar(@Body() usuario: CreateUsuarioDto) {
-        return await this.service.create(usuario).catch((err) => {
+    async criar(@Body() produto: CreateProdutoDto) {
+        return await this.service.create(produto).catch((err) => {
             throw new HttpException(
                 {
                     statusCode: HttpStatus.BAD_REQUEST,
@@ -48,9 +48,9 @@ export class UsuarioController {
     @Put('/:id')
     async atualizar(
         @Param('id', ParseIntPipe) id: number,
-        @Body() usuario: UpdateUsuarioDto,
+        @Body() produto: UpdateProdutoDto,
     ) {
-        return this.service.update(id, usuario);
+        return this.service.update(id, produto);
     }
 
     @Delete('/:id')
